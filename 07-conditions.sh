@@ -6,13 +6,20 @@ if [ $NUMBER -ne 0 ]; then
     exit 1
 
 fi
-
-dnf install mysql -y
-if [ $? -ne 0 ]; then
+VALIDATE(){
+if [ $1 -ne 0 ]; then
     echo "ERROR:: Installing $2 is failure"
     exit 1
 else
     echo "Installing $2 is SUCCESS"
 
 fi
+
+
+}
+
+dnf install mysql -y
+VALIDATE $? "mysql"
+dnf install nginx -y
+VALIDATE $? "nginx"
 
