@@ -11,10 +11,10 @@ if [ $NUMBER -ne 0 ]; then
 fi
 VALIDATE(){
 if [ $1 -ne 0 ]; then
-    echo "ERROR:: Installing $2 is $R--failure--$N"
+    echo -e "ERROR:: Installing $2 is $R--failure--$N"
     exit 1
 else
-    echo "Installing $2 is $G--SUCCESS--$N"
+    echo -e "Installing $2 is $G--SUCCESS--$N"
 
 fi
 
@@ -25,7 +25,7 @@ if [$? -ne 0 ]; then
     dnf install mysql -y
     VALIDATE $? "mysql"
 else
-    echo " my sql is already installed $G--skipping--$N"
+    echo -e " my sql is already installed $G--skipping--$N"
 fi
 
 dnf  list installed nginx
@@ -33,6 +33,6 @@ if [$? -ne 0 ]; then
     dnf install nginx -y
     VALIDATE $? "nginx"
 else
-    echo " nginx is already installed $G--skipping--$N"
+    echo -e  " nginx is already installed $G--skipping--$N"
 
 fi
