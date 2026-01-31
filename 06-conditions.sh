@@ -10,7 +10,7 @@ else
 fi
 
 NUMBER1=$2
-if [ (($NUMBER1 % 2)) -eq 0 ]; then
+if [ $(($NUMBER1 % 2)) -eq 0 ]; then
     echo " given number $NUMBER1 is even"
 else
     echo " given number $NUMBER1 is odd"
